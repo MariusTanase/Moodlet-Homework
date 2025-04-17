@@ -1,30 +1,65 @@
 .dropdown-container {
   position: relative;
-  display: inline-block;
-  width: 220px;
+  width: 215x;
+  max-height: 113px;
+  margin-top: 0;
+  margin-bottom: 10rem;
 }
 
 .dropdown-menu {
+  display: flex;
+  gap: 7px;
+
   position: absolute;
+  padding: 5px 6px;
   top: calc(100% + 4px);
   left: 0;
+
   font-size: 10px;
+
   display: flex;
   flex-direction: column;
-  width: 235px;
-  max-height: 120px;
+
+  width: 215px;
+  max-height: 113px;
+
   overflow-y: auto;
-  background: #fff;
-  border: 1px solid #8a7dd8;
+
+  background: #F8F7FA;
+
+  border: 1px solid #A89DC8;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 4px 0;
+  box-shadow: 0 1px 2px 0 rgba(145, 158, 171, 0.12);
   z-index: 10;
-  scrollbar-width: thin;
-  scrollbar-color: #A89DC8 transparent;
 }
 
-.dropdown-container button {
+.dropdown-menu::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+.dropdown-menu::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.dropdown-menu::-webkit-scrollbar-track {
+  background: #F8F7FA;
+  border-radius: 6px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+  background-color: #A89DC8;
+  border-radius: 6px;
+  border: 3px solid #F8F7FA;
+}
+
+.dropdown-menu::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.dropdown-menu .dropdown-container button {
   padding: 2px 4px;
   border: none;
   border-radius: 8px;
@@ -50,17 +85,24 @@
 
 .select-placeholder {
   font-family: 'Public-Sans', sans-serif;
-  font-size: 14px;
-  color: #555;
+  font-size: 12px;
+  color: #6E5CA3;
 }
 
 .dropdown-item {
-  width: 100%;
   list-style: none;
+  max-width: 203px;
+  height: 22px;
+  max-height: 22px;
+  border-radius: 8px;
+  padding: 1px 4px;
+  color: #6E5CA3;
 }
 
 .dropdown-option {
-  width: 100%;
+  padding: 2px 4px;
+  color: #6E5CA3;
+  width: 95%;
   min-width: 200px;
   background: transparent;
   text-align: left;
@@ -68,25 +110,26 @@
   align-items: center;
   gap: 8px;
   cursor: pointer;
+  border-radius: 8px;
+  border: none;
   transition: background-color 0.15s;
 }
 
 .dropdown-option:hover {
-  background-color: #f5f1ff;
+  background-color: #E2DEED;
 }
 
 .dropdown-option.selected {
   background-color: #DEDBFF;
   border-color: #8a7dd8;
   color: #2C2541;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .dropdown-item-text {
   flex: 1;
   font-family: 'Public-Sans', sans-serif;
   font-size: 14px;
-  color: #555;
 }
 
 .moodlet.with-text,
@@ -112,29 +155,8 @@
 }
 
 .selected-text {
-  color: #6E5CA3;
+  color: #2C2541;
   font-size: 12px;
   letter-spacing: 0px;
   font-weight: 400;
-}
-
-/* Read-only moodlet styling for dropdown */
-.moodlet.read-only,
-.moodlet-clarity.read-only {
-  cursor: default;
-  pointer-events: none;
-}
-
-/* Ensure the moodlet button maintains its shape */
-.moodlet-dropdown .moodlet.letter,
-.moodlet-dropdown .moodlet-clarity.letter {
-  justify-content: center;
-  align-items: center;
-  display: inline-flex;
-}
-
-/* Ensure consistent spacing */
-.moodlet-dropdown .dropdown-option {
-  display: flex;
-  align-items: center;
 }

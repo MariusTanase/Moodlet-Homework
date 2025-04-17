@@ -66,7 +66,6 @@ const MoodletDropdown = ({
 
   return (
     <div className="dropdown-container moodlet-dropdown" ref={ref}>
-      {/* Main trigger button */}
       <button
         className="button-select"
         onClick={() => setOpen(o => !o)}
@@ -83,6 +82,7 @@ const MoodletDropdown = ({
               styleType={styleType}
               readOnly={true}
               initialState="required"
+              renderAs='div'
             />
             <span className="selected-text">{selectedOption.text}</span>
           </div>
@@ -109,6 +109,7 @@ const MoodletDropdown = ({
                       styleType={styleType}
                       readOnly={true}
                       initialState="required"
+                      renderAs='div'
                     />
                   )}
 

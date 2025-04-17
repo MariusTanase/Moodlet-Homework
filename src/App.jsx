@@ -100,7 +100,7 @@ function App() {
         </button>
       </div>
 
-      <h2>Dropdown examples</h2>
+      <h2>Dropdown example</h2>
       <div className="dropdown-examples">
         <div>
           <h3>Following design</h3>

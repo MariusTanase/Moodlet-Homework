@@ -10,6 +10,7 @@ const Moodlet = ({
   moodletData,
   onChange,
   readOnly = false,
+  renderAs = 'button'
 }) => {
   // Track state for this individual moodlet
   const [state, setState] = useState(initialState);
@@ -83,7 +84,8 @@ const Moodlet = ({
   const sizeClass = displayMode === 'word' ? 'word' : 'letter';
   const readOnlyClass = readOnly ? 'read-only' : '';
 
-  return (
+
+  return renderAs === 'button' ? (
     <button
       className={`${readOnlyClass} ${baseClass} ${getColor()} ${sizeClass} `}
       onClick={handleClick}
@@ -91,6 +93,14 @@ const Moodlet = ({
     >
       {getText()}
     </button>
+  ) : (
+    <div
+      className={`${readOnlyClass} ${baseClass} ${getColor()} ${sizeClass} `}
+      onClick={handleClick}
+      onContextMenu={handleClick}
+    >
+      {getText()}
+    </div>
   );
 };
 
