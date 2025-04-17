@@ -48,7 +48,7 @@
   border-radius: 2rem;
 }
 
-.moodlet.letter{
+.moodlet.letter {
   height: 14px;
   width: 14px;
   font-size: 10px;
@@ -86,7 +86,7 @@
   border: 1px solid #319B31;
 }
 
-.moodlet-clarity{
+.moodlet-clarity {
   display: flex;
   width: fit-content;
   height: 24px;
@@ -96,7 +96,7 @@
   color: #fff;
 }
 
-.moodlet-clarity.letter{
+.moodlet-clarity.letter {
   height: 28px;
   width: 28px;
   font-size: 20px;

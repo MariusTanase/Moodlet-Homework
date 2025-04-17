@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './Moodlet.css';
 
 // Single Moodlet button component
-const Moodlet = ({ 
+const Moodlet = ({
   type,
-  initialState = 'required', 
+  initialState = 'required',
   displayType = 'letter',
   styleType = 'default',
   moodletData,
@@ -13,15 +13,15 @@ const Moodlet = ({
 }) => {
   // Track state for this individual moodlet
   const [state, setState] = useState(initialState);
-  
+
   // Get display information from the provided moodletData
   const getData = () => {
     if (!moodletData) return { letter: '', word: '' };
     return moodletData;
   };
-  
+
   const { letter, word } = getData();
-  
+
   // Update display type when prop changes
   const [displayMode, setDisplayMode] = useState(displayType);
   useEffect(() => {
@@ -84,7 +84,7 @@ const Moodlet = ({
   const readOnlyClass = readOnly ? 'read-only' : '';
 
   return (
-    <button 
+    <button
       className={`${readOnlyClass} ${baseClass} ${getColor()} ${sizeClass} `}
       onClick={handleClick}
       onContextMenu={handleClick}

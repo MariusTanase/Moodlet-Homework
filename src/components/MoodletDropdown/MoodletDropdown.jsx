@@ -6,9 +6,9 @@ import Moodlet from '../Moodlet/Moodlet';
 // Generate option objects based on moodlet types
 const generateOptions = (moodletTypes) => {
   if (!moodletTypes) return [];
-  
+
   const options = [];
-  
+
   Object.entries(moodletTypes).forEach(([typeKey, typeData]) => {
     if (typeData.options && typeData.options.length) {
       typeData.options.forEach((optionId, index) => {
@@ -21,20 +21,20 @@ const generateOptions = (moodletTypes) => {
       });
     }
   });
-  
+
   return options;
 };
 
-const MoodletDropdown = ({ 
-  moodletTypes, 
-  styleType = 'default', 
+const MoodletDropdown = ({
+  moodletTypes,
+  styleType = 'default',
   optionViewMode = 'both',
-  onChange 
+  onChange
 }) => {
   const [open, setOpen] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
   const ref = useRef();
-  
+
   // Generate options based on provided moodlet types
   const OPTIONS = moodletTypes ? generateOptions(moodletTypes) : [];
 
@@ -58,7 +58,7 @@ const MoodletDropdown = ({
 
   // Get the selected option
   const selectedOption = OPTIONS.find(opt => opt.id === selectedId);
-  
+
   // Get the moodlet data for a specific type
   const getMoodletData = (type) => {
     return moodletTypes && moodletTypes[type] ? moodletTypes[type] : null;
@@ -67,7 +67,7 @@ const MoodletDropdown = ({
   return (
     <div className="dropdown-container moodlet-dropdown" ref={ref}>
       {/* Main trigger button */}
-      <button 
+      <button
         className="button-select"
         onClick={() => setOpen(o => !o)}
       >
@@ -94,7 +94,6 @@ const MoodletDropdown = ({
         <ul className="dropdown-menu">
           {OPTIONS.map((opt) => {
             const isSelected = selectedId === opt.id;
-            
             return (
               <li key={opt.id} className="dropdown-item">
                 <button

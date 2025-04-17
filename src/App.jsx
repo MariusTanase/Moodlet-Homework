@@ -5,7 +5,7 @@ import MoodletDropdown from './components/MoodletDropdown/MoodletDropdown';
 
 // some default moodlet types that follows the design + extra examples
 export const MOODLET_TYPES = {
-  F: { letter: 'F', word: 'Fuelling' , options: ['F1', 'F2', 'F3', 'F4'] },
+  F: { letter: 'F', word: 'Fuelling', options: ['F1', 'F2', 'F3', 'F4'] },
   S: { letter: 'S', word: 'Servicing', options: ['S1', 'S2', 'S3', 'S4'] },
   C: { letter: 'C', word: 'Cleaning', options: ['C1', 'C2', 'C3', 'C4'] },
   D1: { letter: 'D', word: 'Draining', options: ['D1'] },
@@ -15,14 +15,14 @@ export const MOODLET_TYPES = {
 function App() {
   const [displayType, setDisplayType] = useState('letter');
   const [optionViewMode, setOptionViewMode] = useState('both');
-  
+
   const [moodletStates, setMoodletStates] = useState({
     ...Object.keys(MOODLET_TYPES).reduce((acc, key) => {
       acc[key] = 'required';
       return acc;
     }, {})
   });
-  
+
   // Handle state changes from individual moodlets
   const handleMoodletChange = (type, newState) => {
     setMoodletStates(prev => ({
@@ -61,7 +61,7 @@ function App() {
           />
         ))}
       </div>
-      
+
       {/* Better Clarity Moodlets */}
       <h3>For better clarity</h3>
       <div className="fsc-moodlets">
@@ -77,7 +77,7 @@ function App() {
           />
         ))}
       </div>
-      
+
       <h3>Showing that statuses changes properly</h3>
       <div className="moodlet-statuses">
         {Object.entries(MOODLET_TYPES).map(([key, data]) => (
@@ -107,14 +107,6 @@ function App() {
           <MoodletDropdown
             moodletTypes={MOODLET_TYPES}
             styleType="default"
-            optionViewMode={optionViewMode}
-          />
-        </div>
-        <div>
-          <h3>For better clarity</h3>
-          <MoodletDropdown
-            moodletTypes={MOODLET_TYPES}
-            styleType="clarity"
             optionViewMode={optionViewMode}
           />
         </div>
