@@ -1,0 +1,183 @@
+.fsc-container {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.fsc-status {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fsc-status-label {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.fsc-moodlets {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.moodlet {
+  gap: 3px;
+  background: #998DBF;
+}
+
+.moodlet.word {
+  padding: 0 3px;
+  font-size: 10px;
+  letter-spacing: 0;
+  line-height: 14px;
+  font-weight: 700;
+  font-family: 'Public-Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 2rem;
+}
+
+.moodlet.letter{
+  height: 14px;
+  width: 14px;
+  font-size: 10px;
+  letter-spacing: 0;
+  font-weight: 700;
+  font-family: 'Public-Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 1rem;
+}
+
+.moodlet.purple {
+  background-color: #8a7dd8;
+  color: #fff;
+  border: 1px solid #8a7dd8;
+}
+
+.moodlet.disabled {
+  background-color: #E2DEED;
+  color: #998DBF;
+  border: 1px solid #998DBF;
+}
+
+.moodlet.red {
+  background-color: #D22D5C;
+  color: #fff;
+  border: 1px solid #D22D5C;
+}
+
+.moodlet.green {
+  background-color: #319B31;
+  color: #fff;
+  border: 1px solid #319B31;
+}
+
+.moodlet-clarity{
+  display: flex;
+  width: fit-content;
+  height: 24px;
+  gap: 6px;
+  border: 1px solid #8a7dd8;
+  background: #998DBF;
+  color: #fff;
+}
+
+.moodlet-clarity.letter{
+  height: 28px;
+  width: 28px;
+  font-size: 20px;
+  letter-spacing: 0;
+  font-weight: 700;
+  font-family: 'Public-Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 1rem;
+}
+
+.moodlet-clarity.word {
+  font-size: 20px;
+  padding: 0 6px;
+  color: #824DFF;
+  letter-spacing: 0;
+  line-height: 28px;
+  font-weight: 700;
+  font-family: 'Public-Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 2rem;
+}
+
+.moodlet-clarity.purple {
+  background-color: #8a7dd8;
+  color: #fff;
+  border: 1px solid #8a7dd8;
+}
+
+.moodlet-clarity.disabled {
+  background-color: #E2DEED;
+  color: #998DBF;
+  border: 1px solid #998DBF;
+}
+
+.moodlet-clarity.red {
+  background-color: #D22D5C;
+  color: #fff;
+  border: 1px solid #D22D5C;
+}
+
+.moodlet-clarity.green {
+  background-color: #319B31;
+  color: #fff;
+  border: 1px solid #319B31;
+}
+
+
+/* Moodlet statuses section */
+.moodlet-statuses {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 25px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.moodlet-status {
+  display: flex;
+  gap: 8px;
+}
+
+.moodlet-type {
+  font-weight: bold;
+  min-width: 80px;
+}
+
+.moodlet-state {
+  color: #555;
+}
+
+.read-only {
+  background: #E2DEED !important;
+  border: 1px solid #824DFF !important;
+  color: #824DFF !important;
+}
