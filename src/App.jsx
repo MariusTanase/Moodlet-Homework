@@ -32,7 +32,7 @@ function App() {
   };
 
   //handles navbar changes
-  const [navbarOption, setNavbarOption] = useState('modlet');
+  const [navbarOption, setNavbarOption] = useState('moodlet');
 
 
 
@@ -52,13 +52,14 @@ function App() {
             onClick={() => setNavbarOption('other')}
             className={`menu-button ${navbarOption === 'other' ? 'active' : ''}`}
           >
-            Other
+            Personal Notes
           </button>
         </div>
       </nav>
 
       {navbarOption === 'moodlet' ? (<div>
         <h2>Moodlet take</h2>
+        <p>There are multiple buttons on each step including navbar, please click them :D</p>
         {/* Display toggle - styled to match dropdown */}
         <div className="control-section">
           <h3>Display Type</h3>
@@ -131,6 +132,8 @@ function App() {
         {/* Option view mode controls - styled to match dropdown */}
         <div className="control-section">
           <h3>Display Mode</h3>
+          <p>When clicking any of these buttons it will reset the "Dropdown", didn't work too much on this, I know is bad UX. Please click again on "select button" to see the variants.</p>
+          <p>You can select multiple variants, if I have enough time in the morning I will add the option to deselect them from select dropdown.</p>
           <div className="control-buttons">
             <button
               onClick={() => setOptionViewMode('moodlet')}
