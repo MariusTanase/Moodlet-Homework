@@ -35,80 +35,110 @@ function App() {
     <div className="app">
       <h1>FSC Moodlet Demo</h1>
 
-      {/* Display toggle */}
-      <div className="controls">
-        <button onClick={() => setDisplayType('letter')} className={displayType === 'letter' ? 'active' : ''}>
-          Letter Version
-        </button>
-        <button onClick={() => setDisplayType('word')} className={displayType === 'word' ? 'active' : ''}>
-          Word Version
-        </button>
+      {/* Display toggle - styled to match dropdown */}
+      <div className="control-section">
+        <h3>Display Type</h3>
+        <div className="control-buttons">
+          <button
+            onClick={() => setDisplayType('letter')}
+            className={`menu-button ${displayType === 'letter' ? 'active' : ''}`}
+          >
+            Letter Version
+          </button>
+          <button
+            onClick={() => setDisplayType('word')}
+            className={`menu-button ${displayType === 'word' ? 'active' : ''}`}
+          >
+            Word Version
+          </button>
+        </div>
       </div>
 
       {/* Following Design Moodlets */}
-      <h3>Following design</h3>
-      <div className="fsc-moodlets">
-        {Object.entries(MOODLET_TYPES).map(([key, data]) => (
-          <Moodlet
-            key={key}
-            type={key}
-            moodletData={data}
-            displayType={displayType}
-            styleType="default"
-            initialState={moodletStates[key]}
-            onChange={handleMoodletChange}
-            readOnly={false}
-          />
-        ))}
+      <div className="moodlet-section">
+        <h3>Following design</h3>
+        <div className="fsc-moodlets">
+          {Object.entries(MOODLET_TYPES).map(([key, data]) => (
+            <Moodlet
+              key={key}
+              type={key}
+              moodletData={data}
+              displayType={displayType}
+              styleType="default"
+              initialState={moodletStates[key]}
+              onChange={handleMoodletChange}
+              readOnly={false}
+            />
+          ))}
+        </div>
       </div>
 
       {/* Better Clarity Moodlets */}
-      <h3>For better clarity</h3>
-      <div className="fsc-moodlets">
-        {Object.entries(MOODLET_TYPES).map(([key, data]) => (
-          <Moodlet
-            key={key}
-            type={key}
-            moodletData={data}
-            displayType={displayType}
-            styleType="clarity"
-            initialState={moodletStates[key]}
-            onChange={handleMoodletChange}
-          />
-        ))}
+      <div className="moodlet-section">
+        <h3>For better clarity</h3>
+        <div className="fsc-moodlets">
+          {Object.entries(MOODLET_TYPES).map(([key, data]) => (
+            <Moodlet
+              key={key}
+              type={key}
+              moodletData={data}
+              displayType={displayType}
+              styleType="clarity"
+              initialState={moodletStates[key]}
+              onChange={handleMoodletChange}
+            />
+          ))}
+        </div>
       </div>
 
-      <h3>Showing that statuses changes properly</h3>
-      <div className="moodlet-statuses">
-        {Object.entries(MOODLET_TYPES).map(([key, data]) => (
-          <div key={key} className="moodlet-status">
-            <span className="moodlet-type">{data.word}: </span>
-            <span className="moodlet-state">{moodletStates[key].toUpperCase().replace('-', ' ')}</span>
+      <div className="moodlet-section">
+        <h3>Showing that statuses changes properly</h3>
+        <div className="moodlet-statuses">
+          {Object.entries(MOODLET_TYPES).map(([key, data]) => (
+            <div key={key} className="moodlet-status">
+              <span className="moodlet-type">{data.word}: </span>
+              <span className="moodlet-state">{moodletStates[key].toUpperCase().replace('-', ' ')}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Option view mode controls - styled to match dropdown */}
+      <div className="control-section">
+        <h3>Display Mode</h3>
+        <div className="control-buttons">
+          <button
+            onClick={() => setOptionViewMode('moodlet')}
+            className={`menu-button ${optionViewMode === 'moodlet' ? 'active' : ''}`}
+          >
+            Moodlet Only
+          </button>
+          <button
+            onClick={() => setOptionViewMode('text')}
+            className={`menu-button ${optionViewMode === 'text' ? 'active' : ''}`}
+          >
+            Text Only
+          </button>
+          <button
+            onClick={() => setOptionViewMode('both')}
+            className={`menu-button ${optionViewMode === 'both' ? 'active' : ''}`}
+          >
+            Both
+          </button>
+        </div>
+      </div>
+
+      <div className="dropdown-section">
+        <h2>Dropdown example</h2>
+        <div className="dropdown-examples">
+          <div className="dropdown-example">
+            <h3>Following design</h3>
+            <MoodletDropdown
+              moodletTypes={MOODLET_TYPES}
+              styleType="default"
+              optionViewMode={optionViewMode}
+            />
           </div>
-        ))}
-      </div>
-
-      <div className="dropdown-controls">
-        <button onClick={() => setOptionViewMode('moodlet')} className={optionViewMode === 'moodlet' ? 'active' : ''}>
-          Moodlet Only
-        </button>
-        <button onClick={() => setOptionViewMode('text')} className={optionViewMode === 'text' ? 'active' : ''}>
-          Text Only
-        </button>
-        <button onClick={() => setOptionViewMode('both')} className={optionViewMode === 'both' ? 'active' : ''}>
-          Both
-        </button>
-      </div>
-
-      <h2>Dropdown example</h2>
-      <div className="dropdown-examples">
-        <div>
-          <h3>Following design</h3>
-          <MoodletDropdown
-            moodletTypes={MOODLET_TYPES}
-            styleType="default"
-            optionViewMode={optionViewMode}
-          />
         </div>
       </div>
     </div>

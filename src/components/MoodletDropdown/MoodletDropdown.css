@@ -1,6 +1,6 @@
 .dropdown-container {
   position: relative;
-  width: 215x;
+  width: 215px;
   max-height: 113px;
   margin-top: 0;
   margin-bottom: 10rem;
@@ -9,28 +9,29 @@
 .dropdown-menu {
   display: flex;
   gap: 7px;
-
-  position: absolute;
   padding: 5px 6px;
-  top: calc(100% + 4px);
-  left: 0;
-
   font-size: 10px;
-
-  display: flex;
   flex-direction: column;
-
   width: 215px;
   max-height: 113px;
-
   overflow-y: auto;
-
   background: #F8F7FA;
-
   border: 1px solid #A89DC8;
   border-radius: 8px;
   box-shadow: 0 1px 2px 0 rgba(145, 158, 171, 0.12);
   z-index: 10;
+}
+
+/* Add right-side flipping when near window edge */
+.dropdown-container.flip-right .dropdown-menu {
+  left: auto;
+  right: 0;
+}
+
+/* If dropdown would go below viewport, show it above the trigger */
+.dropdown-container.flip-top .dropdown-menu {
+  top: auto;
+  bottom: calc(100% + 4px);
 }
 
 .dropdown-menu::-webkit-scrollbar {
@@ -75,18 +76,26 @@
 .button-select {
   display: flex;
   align-items: center;
-  background: transparent;
-  border: none;
+  background: #F8F7FA;
+  border: 1px solid #A89DC8;
+  border-radius: 8px;
   padding: 2px 4px !important;
   cursor: pointer;
   max-height: 22px;
   height: 22px;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .select-placeholder {
   font-family: 'Public-Sans', sans-serif;
   font-size: 12px;
   color: #6E5CA3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  text-align: left;
 }
 
 .dropdown-item {
@@ -126,6 +135,10 @@
   font-weight: 400;
 }
 
+.dropdown-arrow {
+  color: #A89DC8;
+}
+
 .dropdown-item-text {
   flex: 1;
   font-family: 'Public-Sans', sans-serif;
@@ -159,4 +172,108 @@
   font-size: 12px;
   letter-spacing: 0px;
   font-weight: 400;
+}
+
+/* Read-only moodlet styling for dropdown */
+.moodlet.read-only,
+.moodlet-clarity.read-only {
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Selected items container */
+.selected-items-container {
+  margin-top: 12px;
+  border: 1px solid #A89DC8;
+  border-radius: 8px;
+  background-color: #F8F7FA;
+  padding: 8px;
+  width: 100%;
+  box-shadow: 0 1px 2px 0 rgba(145, 158, 171, 0.12);
+}
+
+.selected-items-title {
+  font-family: 'Public-Sans', sans-serif;
+  font-size: 14px;
+  color: #6E5CA3;
+  margin: 0 0 0px 0;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #e2deed;
+}
+
+.selected-items-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+}
+
+.selected-item {
+  padding: 4px 0;
+  border-bottom: 1px solid #e2deed;
+}
+
+.selected-item:last-child {
+  border-bottom: none;
+}
+
+.selected-item-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.selected-item-text {
+  flex: 1;
+  font-family: 'Public-Sans', sans-serif;
+  font-size: 12px;
+  color: #2C2541;
+}
+
+.remove-item-btn {
+  background: transparent !important;
+  color: #6E5CA3;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0 !important;
+  width: 20px;
+  height: 20px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50% !important;
+}
+
+.remove-item-btn:hover {
+  background-color: #E2DEED !important;
+}
+
+.no-items-selected {
+  font-family: 'Public-Sans', sans-serif;
+  font-size: 12px;
+  color: #999;
+  padding: 8px 4px;
+  font-style: italic;
+}
+
+@media screen and (max-width: 768px) {
+
+  .dropdown-menu {
+
+    max-width: 250px;
+    max-height: 150px;
+    gap: 15px;
+  }
+
+  .dropdown-option {
+    font-size: 12px;
+    border-radius: 12px;
+    padding: 4px 8px;
+    gap: 10px;
+    min-height: 30px;
+    min-width: 205px;
+  }
+
+
 }
