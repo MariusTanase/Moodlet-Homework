@@ -132,7 +132,7 @@ function App() {
         {/* Option view mode controls - styled to match dropdown */}
         <div className="control-section">
           <h3>Display Mode</h3>
-          <p>When clicking any of these buttons it will reset the "Dropdown", didn't work too much on this, I know is bad UX. Please click again on "select button" to see the variants.</p>
+          <p>When clicking any of these buttons it will close the "Dropdown" on the personal take, didn't fine tune it, but basically when clicking outside the "hidden dropdown", it will close it, made it that way that if the user clicks another element to close the 'open' ones, I could use external libraries for this but decided to keep to vanilla CSS and showcase the idea. Please click again on "select button" to see the variants.</p>
           <div className="control-buttons">
             <button
               onClick={() => setOptionViewMode('moodlet')}
