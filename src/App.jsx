@@ -288,7 +288,7 @@ function App() {
           </p>
 
           <p>
-            The biggest challenge was that I was always having ideas of how to showcase most of the design, and tried to perfect my project. I've added just Primary color scheme, the rest can easily be added as a prop.
+            The biggest challenge was that I was always having ideas of how to showcase most of the design, and tried to perfect my project. I've added just <del>Primary color scheme</del> 🥇added them all🥇<del> the rest can easily be added as a prop.</del>
           </p>
 
           <p>
@@ -300,7 +300,7 @@ function App() {
           </p>
 
           <p>
-            The "Moodlet" buttons (icons) work fine. The Moodlet component is reusable in different parts of the code.
+            The "Moodlet" buttons (icons) work fine. The Moodlet component is reusable in different parts of the code, color schemes are easily customisable, I can just add an endless amount of them. I can keep this info for the next interview of what I could add more.
           </p>
 
           <p>
