@@ -218,7 +218,7 @@ function App() {
         <p>18.04.2025</p>
         <div>
           Code: <a href='https://github.com/MariusTanase/Moodlet-Homework'>Github Repo</a>
-          Live: <a href='moodlet-challenge.vercel.app'>Live - Vercel</a>
+          Live: <a href='https://moodlet-challenge.vercel.app'>Live - Vercel</a>
         </div>
       </footer>
     </div>
