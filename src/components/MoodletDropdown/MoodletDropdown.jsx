@@ -177,7 +177,7 @@ const MoodletDropdown = ({
         onClick={() => setOpen(!open)}
       >
         <span className="select-placeholder">
-          {selectedIds.length === 0 ? "Select" : `${selectedIds.length} Selected`}
+          {selectedIds.length === 0 ? "Select Items" : `${selectedIds.length} Items Selected`}
         </span>
         <span className="dropdown-arrow">{open ? "▲" : "▼"}</span>
       </button>
