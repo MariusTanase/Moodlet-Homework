@@ -215,7 +215,7 @@ function App() {
       <footer>
         <p>Created by Marius T.</p>
         <p>IQM Software Challenge</p>
-        <p>18.04.2025</p>
+        <p>17.04.2025</p>
         <div>
           Code: <a href='https://github.com/MariusTanase/Moodlet-Homework'>Github Repo</a>
           Live: <a href='https://moodlet-challenge.vercel.app'>Live - Vercel</a>

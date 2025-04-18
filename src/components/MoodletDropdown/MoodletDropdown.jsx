@@ -171,19 +171,97 @@ const MoodletDropdown = ({
   };
 
   return (
-    <div className={`dropdown-container moodlet-dropdown ${positionClasses}`} ref={containerRef}>
-      <button
-        className="button-select"
-        onClick={() => setOpen(!open)}
-      >
-        <span className="select-placeholder">
-          {selectedIds.length === 0 ? "Select Items" : `${selectedIds.length} Items Selected`}
-        </span>
-        <span className="dropdown-arrow">{open ? "▲" : "▼"}</span>
-      </button>
+    <div className='moodlet-dropdown-container'>
 
-      {/* Dropdown menu */}
-      {open && (
+
+      <div className={`dropdown-container moodlet-dropdown ${positionClasses}`} ref={containerRef}>
+        <h3>Personal take</h3>
+        <div>
+          <button
+            className="button-select"
+            onClick={() => setOpen(!open)}
+          >
+            <span className="select-placeholder">
+              {selectedIds.length === 0 ? "Select Items" : `${selectedIds.length} Items Selected`}
+            </span>
+            <span className="dropdown-arrow">{open ? "▲" : "▼"}</span>
+          </button>
+
+          {/* Dropdown menu shown by select button */}
+          {open && (
+            <ul className="dropdown-menu" ref={dropdownRef}>
+              {OPTIONS.map((opt) => {
+                const isSelected = selectedIds.includes(opt.id);
+                return (
+                  <li key={opt.id} className="dropdown-item">
+                    <button
+                      className={`dropdown-option ${isSelected ? 'selected' : ''}`}
+                      onClick={() => handleSelect(opt.id)}
+                      disabled={opt.disabled}
+                    >
+                      {(optionViewMode === 'moodlet' || optionViewMode === 'both') && (
+                        <Moodlet
+                          type={opt.type}
+                          moodletData={getMoodletData(opt.type)}
+                          displayType="letter"
+                          styleType={styleType}
+                          readOnly={opt.disabled ? false : true}
+                          initialState={opt.disabled ? 'not-required' : 'required'}
+                          renderAs='div'
+                        />
+                      )}
+                      {(optionViewMode === 'text' || optionViewMode === 'both') && (
+                        <span className="dropdown-item-text">{opt.text}</span>
+                      )}
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+
+          <div className="selected-items-container">
+            <h4 className="selected-items-title">Selected Items</h4>
+            <ul className="selected-items-list">
+              {selectedIds.map(id => {
+                const option = getOptionById(id);
+                if (!option) return null;
+
+                return (
+                  <li key={id} className="selected-item">
+                    <div className="selected-item-content">
+                      <Moodlet
+                        type={option.type}
+                        moodletData={getMoodletData(option.type)}
+                        displayType="letter"
+                        styleType={styleType}
+                        readOnly={false}
+                        initialState={selectedStates[id] || 'required'}
+                        onChange={(_, newState) => handleMoodletStateChange(id, newState)}
+                      />
+                      <span className="selected-item-text">{option.text}</span>
+                      <button
+                        className="remove-item-btn"
+                        onClick={() => handleRemove(id)}
+                      >
+                        ✕
+                      </button>
+                    </div>
+                  </li>
+                );
+              })}
+              {selectedIds.length === 0 && (
+                <li className="no-items-selected">No items selected</li>
+              )}
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div>
+        <h3>Desktop</h3>
         <ul className="dropdown-menu" ref={dropdownRef}>
           {OPTIONS.map((opt) => {
             const isSelected = selectedIds.includes(opt.id);
@@ -213,44 +291,42 @@ const MoodletDropdown = ({
             );
           })}
         </ul>
-      )}
+      </div>
 
-      <div className="selected-items-container">
-        <h4 className="selected-items-title">Selected Items</h4>
-        <ul className="selected-items-list">
-          {selectedIds.map(id => {
-            const option = getOptionById(id);
-            if (!option) return null;
-
+      <div id='mobile-dropdown-container'>
+        <h3>Mobile</h3>
+        <ul className="dropdown-menu mobile" ref={dropdownRef}>
+          {OPTIONS.map((opt) => {
+            const isSelected = selectedIds.includes(opt.id);
             return (
-              <li key={id} className="selected-item">
-                <div className="selected-item-content">
-                  <Moodlet
-                    type={option.type}
-                    moodletData={getMoodletData(option.type)}
-                    displayType="letter"
-                    styleType={styleType}
-                    readOnly={false}
-                    initialState={selectedStates[id] || 'required'}
-                    onChange={(_, newState) => handleMoodletStateChange(id, newState)}
-                  />
-                  <span className="selected-item-text">{option.text}</span>
-                  <button
-                    className="remove-item-btn"
-                    onClick={() => handleRemove(id)}
-                  >
-                    ✕
-                  </button>
-                </div>
+              <li key={opt.id} className="dropdown-item">
+                <button
+                  className={`dropdown-option ${isSelected ? 'selected' : ''}`}
+                  onClick={() => handleSelect(opt.id)}
+                  disabled={opt.disabled}
+                >
+                  {(optionViewMode === 'moodlet' || optionViewMode === 'both') && (
+                    <Moodlet
+                      type={opt.type}
+                      moodletData={getMoodletData(opt.type)}
+                      displayType="letter"
+                      styleType={styleType}
+                      readOnly={opt.disabled ? false : true}
+                      initialState={opt.disabled ? 'not-required' : 'required'}
+                      renderAs='div'
+                    />
+                  )}
+                  {(optionViewMode === 'text' || optionViewMode === 'both') && (
+                    <span className="dropdown-item-text">{opt.text}</span>
+                  )}
+                </button>
               </li>
             );
           })}
-          {selectedIds.length === 0 && (
-            <li className="no-items-selected">No items selected</li>
-          )}
         </ul>
       </div>
-    </div>
+
+    </div >
   );
 };
 

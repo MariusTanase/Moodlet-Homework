@@ -1,10 +1,17 @@
+.moodlet-dropdown-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
 .dropdown-container {
-  position: relative;
   width: 215px;
-  max-height: 113px;
   margin-top: 0;
   margin-bottom: 10rem;
 }
+
+
 
 .dropdown-menu {
   display: flex;
@@ -19,8 +26,9 @@
   border: 1px solid #A89DC8;
   border-radius: 8px;
   box-shadow: 0 1px 2px 0 rgba(145, 158, 171, 0.12);
-  z-index: 10;
 }
+
+
 
 /* Add right-side flipping when near window edge */
 .dropdown-container.flip-right .dropdown-menu {
@@ -271,9 +279,7 @@ button:disabled:hover {
 }
 
 @media screen and (max-width: 768px) {
-
   .dropdown-menu {
-
     max-width: 250px;
     max-height: 150px;
     gap: 15px;
@@ -289,4 +295,21 @@ button:disabled:hover {
   }
 
 
+}
+
+@media screen and (min-width: 768px) {
+  #mobile-dropdown-container .dropdown-menu {
+    max-width: 250px;
+    max-height: 150px;
+    gap: 15px;
+  }
+
+  #mobile-dropdown-container .dropdown-option {
+    font-size: 12px;
+    border-radius: 12px;
+    padding: 4px 8px;
+    gap: 10px;
+    min-height: 30px;
+    min-width: 205px;
+  }
 }
