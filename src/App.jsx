@@ -3,6 +3,8 @@ import './App.css';
 import Moodlet from './components/Moodlet/Moodlet';
 import MoodletDropdown from './components/MoodletDropdown/MoodletDropdown';
 import { library } from '@fortawesome/fontawesome-svg-core';
+import { MOODLET_TYPES } from './types/MoodletTypes';
+
 import {
   faGasPump,
   faWrench,
@@ -12,7 +14,7 @@ import {
   faMagnifyingGlass,
   faEllipsisH
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 library.add(
   faGasPump,
@@ -23,54 +25,6 @@ library.add(
   faMagnifyingGlass,
   faEllipsisH
 );
-
-// some default moodlet types that follows the design + extra examples
-export const MOODLET_TYPES = {
-  F: {
-    letter: 'F',
-    word: 'Fuelling',
-    options: ['F1', 'F2', 'F3', 'F4'],
-    icon: <FontAwesomeIcon icon="gas-pump" />,
-    ellipsis: false
-  },
-  S: {
-    letter: 'S',
-    word: 'Servicing',
-    options: ['S1', 'S2', 'S3', 'S4'],
-    icon: <FontAwesomeIcon icon="wrench" />,
-    ellipsis: false,
-  },
-  C: {
-    letter: 'C',
-    word: 'Cleaning',
-    options: ['C1', 'C2', 'C3', 'C4'],
-    icon: <FontAwesomeIcon icon="broom" />,
-    ellipsis: false
-  },
-  D1: {
-    letter: 'D',
-    word: 'Draining',
-    options: ['D1'],
-    icon: <FontAwesomeIcon icon="shower" />,
-    ellipsis: false
-  },
-  D2: {
-    letter: 'W',
-    word: 'Washing',
-    options: ['W1', 'W2'],
-    icon: <FontAwesomeIcon icon="water" />,
-    ellipsis: false,
-    disabled: true
-  },
-  I: {
-    letter: 'I',
-    word: 'Inspection',
-    options: ['I1', 'I2'],
-    icon: <FontAwesomeIcon icon="magnifying-glass" />,
-    ellipsis: true,
-    readOnly: true
-  },
-};
 
 function App() {
   const [displayType, setDisplayType] = useState('letter');
@@ -140,7 +94,7 @@ function App() {
               onClick={() => setDisplayType('ellipsis')}
               className={`menu-button ${displayType === 'ellipsis' ? 'active' : ''}`}
             >
-              Ellipsis <i class="fa-solid fa-ellipsis"></i>
+              Ellipsis <i className="fa-solid fa-ellipsis"></i>
             </button>
             <button
               onClick={() => setDisplayType('word')}
@@ -209,7 +163,11 @@ function App() {
             {Object.entries(MOODLET_TYPES).map(([key, data]) => (
               <div key={key} className="moodlet-status">
                 <span className="moodlet-type">{data.word}: </span>
-                <span className="moodlet-state">{moodletStates[key].toUpperCase().replace('-', ' ')}</span>
+                <span className="moodlet-state">
+                  {data.readOnly ? "READ-ONLY" :
+                    data.disabled ? "DISABLED" :
+                      moodletStates[key].toUpperCase().replace('-', ' ')}
+                </span>
               </div>
             ))}
           </div>
