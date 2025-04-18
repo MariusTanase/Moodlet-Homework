@@ -1,11 +1,158 @@
+:root {
+  /* Primary Theme Colors */
+  --moodlet-primary-bg: #8a7dd8;
+  --moodlet-primary-border: #8a7dd8;
+  --moodlet-primary-text: #ffffff;
+
+  --moodlet-primary-hover-bg: #6D0EF1;
+  --moodlet-primary-hover-border: #6D0EF1;
+  --moodlet-primary-hover-text: #ffffff;
+
+  /* State Colors */
+  --moodlet-red-bg: #D22D5C;
+  --moodlet-red-border: #D22D5C;
+  --moodlet-red-text: #ffffff;
+
+  --moodlet-green-bg: #319B31;
+  --moodlet-green-border: #319B31;
+  --moodlet-green-text: #ffffff;
+
+  --moodlet-disabled-bg: #E2DEED;
+  --moodlet-disabled-border: #998DBF;
+  --moodlet-disabled-text: #998DBF;
+
+  --moodlet-readonly-bg: #E2DEED;
+  --moodlet-readonly-border: #824DFF;
+  --moodlet-readonly-text: #824DFF;
+
+  /* Base Colors */
+  --moodlet-base-bg: #998DBF;
+  --moodlet-base-border: #998DBF;
+  --moodlet-base-text: #ffffff;
+
+  /* UI Colors */
+  --app-background: #f5f5fa;
+  --app-text: #2C2541;
+  --app-heading: #6E5CA3;
+  --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+  /* Spacing */
+  --moodlet-gap: 15px;
+  --section-padding: 20px;
+  --border-radius-sm: 6px;
+  --border-radius-md: 8px;
+  --border-radius-pill: 2rem;
+  --border-radius-circle: 1rem;
+}
+
+.secondary-theme {
+  --moodlet-primary-bg: #09A7AA;
+  --moodlet-primary-border: #09A7AA;
+  --moodlet-primary-text: #fff;
+
+  --moodlet-primary-hover-bg: #007780;
+  --moodlet-primary-hover-border: #007780;
+  --moodlet-primary-hover-text: #ffffff;
+
+  --moodlet-readonly-bg: #CCFFE9;
+  --moodlet-readonly-border: #09A7AA;
+  --moodlet-readonly-text: #09A7AA;
+}
+
+.inactive-theme {
+  --moodlet-primary-bg: #998DBF;
+  --moodlet-primary-border: #998DBF;
+  --moodlet-primary-text: #fff;
+
+  --moodlet-primary-hover-bg: #6E5CA3;
+  --moodlet-primary-hover-border: #6E5CA3;
+  --moodlet-primary-hover-text: #ffffff;
+
+  --moodlet-readonly-bg: #D3CEE3;
+  --moodlet-readonly-border: #808080;
+  --moodlet-readonly-text: #808080;
+}
+
+.blue-theme {
+  --moodlet-primary-bg: #0B94D8;
+  --moodlet-primary-border: #0B94D8;
+  --moodlet-primary-text: #fff;
+
+  --moodlet-primary-hover-bg: #005580;
+  --moodlet-primary-hover-border: #005580;
+  --moodlet-primary-hover-text: #ffffff;
+
+  --moodlet-readonly-bg: #B2E5FF;
+  --moodlet-readonly-border: #0B94D8;
+  --moodlet-readonly-text: #0B94D8;
+}
+
+.green-theme {
+  --moodlet-primary-bg: #319B31;
+  --moodlet-primary-border: #319B31;
+  --moodlet-primary-text: #fff;
+
+  --moodlet-primary-hover-bg: #247524;
+  --moodlet-primary-hover-border: #247524;
+  --moodlet-primary-hover-text: #ffffff;
+
+  --moodlet-readonly-bg: #D6F6D6;
+  --moodlet-readonly-border: #319B31;
+  --moodlet-readonly-text: #319B31;
+}
+
+.red-theme {
+  --moodlet-primary-bg: #D22D5C;
+  --moodlet-primary-border: #D22D5C;
+  --moodlet-primary-text: #fff;
+
+  --moodlet-primary-hover-bg: #A82443;
+  --moodlet-primary-hover-border: #A82443;
+  --moodlet-primary-hover-text: #ffffff;
+
+  --moodlet-readonly-bg: #F6D6E4;
+  --moodlet-readonly-border: #D22D5C;
+  --moodlet-readonly-text: #D22D5C;
+}
+
+.yellow-theme {
+  --moodlet-primary-bg: #FFD116;
+  --moodlet-primary-border: #FFD116;
+  --moodlet-primary-text: #2C2541;
+
+  --moodlet-primary-hover-bg: #C39100;
+  --moodlet-primary-hover-border: #C39100;
+  --moodlet-primary-hover-text: #2C2541;
+
+  --moodlet-readonly-bg: #FEFFCF;
+  --moodlet-readonly-border: #C39100;
+  --moodlet-readonly-text: #C39100;
+}
+
+.placeholder-theme {
+  --moodlet-primary-bg: #BDB2FF;
+  --moodlet-primary-border: #824DFF;
+  --moodlet-primary-text: #824DFF;
+
+  --moodlet-primary-hover-bg: #BDB2FF;
+  --moodlet-primary-hover-border: #824DFF;
+  --moodlet-primary-hover-text: #824DFF;
+
+  --moodlet-readonly-bg: #BDB2FF;
+  --moodlet-readonly-border: #824DFF;
+  --moodlet-readonly-text: #824DFF;
+
+}
+
+
 .fsc-container {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
-  background-color: #f5f5fa;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: var(--section-padding);
+  background-color: var(--app-background);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow);
   position: relative;
 }
 
@@ -19,12 +166,12 @@
 .fsc-status-label {
   font-weight: bold;
   font-size: 1.2rem;
-  color: #555;
+  color: var(--app-text);
 }
 
 .fsc-moodlets {
   display: flex;
-  gap: 15px;
+  gap: var(--moodlet-gap);
   margin-bottom: 20px;
   justify-content: center;
   flex-wrap: wrap;
@@ -32,12 +179,12 @@
 
 .moodlet {
   gap: 3px;
-  background: #998DBF;
-  border: 1px solid #998DBF;
+  background: var(--moodlet-base-bg);
+  border: 1px solid var(--moodlet-base-border);
+  color: var(--moodlet-base-text);
   cursor: pointer;
   transition: all 0.2s ease;
 }
-
 
 .moodlet.letter {
   height: 14px;
@@ -50,7 +197,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  border-radius: 1rem;
+  border-radius: var(--border-radius-circle);
   padding: 0;
 }
 
@@ -66,7 +213,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  border-radius: 2rem;
+  border-radius: var(--border-radius-pill);
 }
 
 .moodlet.icon {
@@ -77,7 +224,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  border-radius: 1rem;
+  border-radius: var(--border-radius-circle);
   padding: 0;
 }
 
@@ -107,25 +254,22 @@
   font-weight: 700;
 }
 
-/* Color states */
 .moodlet.primary {
-  background-color: #8a7dd8;
-  color: #fff;
-  border: 1px solid #8a7dd8;
+  background-color: var(--moodlet-primary-bg);
+  color: var(--moodlet-primary-text);
+  border: 1px solid var(--moodlet-primary-border);
 }
 
-
-
 .moodlet.red {
-  background-color: #D22D5C;
-  color: #fff;
-  border: 1px solid #D22D5C;
+  background-color: var(--moodlet-red-bg);
+  color: var(--moodlet-red-text);
+  border: 1px solid var(--moodlet-red-border);
 }
 
 .moodlet.green {
-  background-color: #319B31;
-  color: #fff;
-  border: 1px solid #319B31;
+  background-color: var(--moodlet-green-bg);
+  color: var(--moodlet-green-text);
+  border: 1px solid var(--moodlet-green-border);
 }
 
 .moodlet-clarity {
@@ -133,9 +277,9 @@
   width: fit-content;
   height: 24px;
   gap: 6px;
-  border: 1px solid #8a7dd8;
-  background: #998DBF;
-  color: #fff;
+  border: 1px solid var(--moodlet-primary-border);
+  background: var(--moodlet-base-bg);
+  color: var(--moodlet-base-text);
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -151,13 +295,13 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  border-radius: 1rem;
+  border-radius: var(--border-radius-circle);
 }
 
 .moodlet-clarity.word {
   font-size: 20px;
   padding: 0 6px;
-  color: #824DFF;
+  color: var(--moodlet-readonly-text);
   letter-spacing: 0;
   line-height: 28px;
   font-weight: 700;
@@ -166,7 +310,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  border-radius: 2rem;
+  border-radius: var(--border-radius-pill);
 }
 
 .moodlet-clarity.icon {
@@ -177,7 +321,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  border-radius: 1rem;
+  border-radius: var(--border-radius-circle);
 }
 
 .moodlet-clarity.with-icon {
@@ -186,7 +330,7 @@
   justify-content: center;
   gap: 8px;
   padding: 0 10px;
-  border-radius: 2rem;
+  border-radius: var(--border-radius-pill);
 }
 
 .moodlet-clarity .moodlet-icon {
@@ -205,29 +349,29 @@
 }
 
 .moodlet-clarity.primary {
-  background-color: #8a7dd8;
-  color: #fff;
-  border: 1px solid #8a7dd8;
+  background-color: var(--moodlet-primary-bg);
+  color: var(--moodlet-primary-text);
+  border: 1px solid var(--moodlet-primary-border);
 }
 
 .moodlet.disabled,
 .moodlet-clarity.disabled {
-  background-color: #E2DEED;
-  color: #998DBF;
-  border: 1px solid #998DBF;
+  background-color: var(--moodlet-disabled-bg);
+  color: var(--moodlet-disabled-text);
+  border: 1px solid var(--moodlet-disabled-border);
   cursor: default;
 }
 
 .moodlet-clarity.red {
-  background-color: #D22D5C;
-  color: #fff;
-  border: 1px solid #D22D5C;
+  background-color: var(--moodlet-red-bg);
+  color: var(--moodlet-red-text);
+  border: 1px solid var(--moodlet-red-border);
 }
 
 .moodlet-clarity.green {
-  background-color: #319B31;
-  color: #fff;
-  border: 1px solid #319B31;
+  background-color: var(--moodlet-green-bg);
+  color: var(--moodlet-green-text);
+  border: 1px solid var(--moodlet-green-border);
 }
 
 .moodlet-statuses {
@@ -237,7 +381,7 @@
   margin-bottom: 25px;
   background-color: white;
   padding: 15px;
-  border-radius: 6px;
+  border-radius: var(--border-radius-sm);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -249,25 +393,27 @@
 .moodlet-type {
   font-weight: bold;
   min-width: 80px;
+  color: var(--app-heading);
 }
 
 .moodlet-state {
-  color: #555;
+  color: var(--app-text);
 }
 
 .moodlet.primary:hover:not(.disabled):not(.red):not(.green),
 .moodlet-clarity.primary:hover:not(.disabled):not(.red):not(.green) {
-  background: #6D0EF1;
-  border: 1px solid #6D0EF1;
+  background: var(--moodlet-primary-hover-bg);
+  border: 1px solid var(--moodlet-primary-hover-border);
+  color: var(--moodlet-primary-hover-text);
 }
 
 .read-only {
-  background: #E2DEED !important;
-  border: 1px solid #824DFF !important;
-  color: #824DFF !important;
+  background: var(--moodlet-readonly-bg) !important;
+  border: 1px solid var(--moodlet-readonly-border) !important;
+  color: var(--moodlet-readonly-text) !important;
 }
 
 .read-only .moodlet-icon,
 .read-only .moodlet-text {
-  color: #824DFF !important;
+  color: var(--moodlet-readonly-text) !important;
 }

@@ -48,7 +48,11 @@ function App() {
   //handles navbar changes
   const [navbarOption, setNavbarOption] = useState('moodlet');
 
+  const [colorScheme, setColorScheme] = useState('')
 
+  const handleColorSchemeChange = (scheme) => {
+    setColorScheme(scheme)
+  }
 
   return (
     <div className="app">
@@ -70,6 +74,7 @@ function App() {
           </button>
         </div>
       </nav>
+
 
       {navbarOption === 'moodlet' ? (<div>
         <h2>Moodlet take</h2>
@@ -117,8 +122,65 @@ function App() {
           </div>
         </div>
 
+        <div className='control-section'>
+          <h3>Color scheme</h3>
+          <div className="control-buttons">
+            <button
+              onClick={() => handleColorSchemeChange('')}
+              className={`menu-button`}
+            >
+              Primary | Active Scheme
+            </button>
+            <button
+              onClick={() => handleColorSchemeChange('secondary-theme')}
+              className={`menu-button`}
+            >
+              Secondary | Planning Scheme
+            </button>
+            <button
+              onClick={() => handleColorSchemeChange('inactive-theme')}
+              className={`menu-button`}
+            >
+              Inactive Scheme
+            </button>
+            <button
+              onClick={() => handleColorSchemeChange('blue-theme')}
+              className={`menu-button`}
+            >
+              Blue | Released Scheme
+            </button>
+            <button
+              onClick={() => handleColorSchemeChange('green-theme')}
+              className={`menu-button`}
+            >
+              Green | OK Scheme
+            </button>
+
+            <button
+              onClick={() => handleColorSchemeChange('red-theme')}
+              className={`menu-button`}
+            >
+              Red | Stop/Block Scheme
+            </button>
+
+            <button
+              onClick={() => handleColorSchemeChange('yellow-theme')}
+              className={`menu-button`}
+            >
+              Yellow | Warning Scheme
+            </button>
+
+            <button
+              onClick={() => handleColorSchemeChange('placeholder-theme')}
+              className={`menu-button`}
+            >
+              Placeholder Scheme
+            </button>
+          </div>
+        </div>
+
         {/* Following Design Moodlets */}
-        <div className="moodlet-section">
+        <div className={`moodlet-section ${colorScheme}`}>
           <h3>Following design</h3>
           <div className="fsc-moodlets">
             {Object.entries(MOODLET_TYPES).map(([key, data]) => (
@@ -138,7 +200,7 @@ function App() {
         </div>
 
         {/* Better Clarity Moodlets */}
-        <div className="moodlet-section">
+        <div className={`moodlet-section ${colorScheme}`}>
           <h3>For better clarity</h3>
           <div className="fsc-moodlets">
             {Object.entries(MOODLET_TYPES).map(([key, data]) => (
