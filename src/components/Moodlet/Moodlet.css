@@ -27,26 +27,17 @@
   gap: 15px;
   margin-bottom: 20px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .moodlet {
   gap: 3px;
   background: #998DBF;
+  border: 1px solid #998DBF;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.moodlet.word {
-  padding: 0 3px;
-  font-size: 10px;
-  letter-spacing: 0;
-  line-height: 14px;
-  font-weight: 700;
-  font-family: 'Public-Sans', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  border-radius: 2rem;
-}
 
 .moodlet.letter {
   height: 14px;
@@ -60,19 +51,70 @@
   align-items: center;
   text-align: center;
   border-radius: 1rem;
+  padding: 0;
 }
 
+.moodlet.word {
+  height: 14px;
+  padding: 0 3px;
+  font-size: 10px;
+  letter-spacing: 0;
+  line-height: 14px;
+  font-weight: 700;
+  font-family: 'Public-Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 2rem;
+}
+
+.moodlet.icon {
+  height: 14px;
+  width: 14px;
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 1rem;
+  padding: 0;
+}
+
+.moodlet.ellipsis {
+  font-size: 10px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.moodlet.with-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 0 6px;
+}
+
+.moodlet-icon {
+  font-size: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.moodlet-text {
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* Color states */
 .moodlet.purple {
   background-color: #8a7dd8;
   color: #fff;
   border: 1px solid #8a7dd8;
 }
 
-.moodlet.disabled {
-  background-color: #E2DEED;
-  color: #998DBF;
-  border: 1px solid #998DBF;
-}
+
 
 .moodlet.red {
   background-color: #D22D5C;
@@ -94,6 +136,8 @@
   border: 1px solid #8a7dd8;
   background: #998DBF;
   color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .moodlet-clarity.letter {
@@ -125,16 +169,53 @@
   border-radius: 2rem;
 }
 
+.moodlet-clarity.icon {
+  height: 28px;
+  width: 28px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 1rem;
+}
+
+.moodlet-clarity.with-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 10px;
+  border-radius: 2rem;
+}
+
+.moodlet-clarity .moodlet-icon {
+  font-size: 16px;
+}
+
+.moodlet-clarity .moodlet-text {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.moodlet-clarity.ellipsis {
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
 .moodlet-clarity.purple {
   background-color: #8a7dd8;
   color: #fff;
   border: 1px solid #8a7dd8;
 }
 
+.moodlet.disabled,
 .moodlet-clarity.disabled {
   background-color: #E2DEED;
   color: #998DBF;
   border: 1px solid #998DBF;
+  cursor: not-allowed;
 }
 
 .moodlet-clarity.red {
@@ -149,8 +230,6 @@
   border: 1px solid #319B31;
 }
 
-
-/* Moodlet statuses section */
 .moodlet-statuses {
   display: flex;
   flex-direction: column;
@@ -176,8 +255,19 @@
   color: #555;
 }
 
+.moodlet.purple:hover:not(.disabled):not(.red):not(.green),
+.moodlet-clarity.purple:hover:not(.disabled):not(.red):not(.green) {
+  background: #6D0EF1;
+  border: 1px solid #6D0EF1;
+}
+
 .read-only {
   background: #E2DEED !important;
   border: 1px solid #824DFF !important;
+  color: #824DFF !important;
+}
+
+.read-only .moodlet-icon,
+.read-only .moodlet-text {
   color: #824DFF !important;
 }

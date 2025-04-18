@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './Moodlet.css';
+// Import Font Awesome components
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 
-// Single Moodlet button component
+
 const Moodlet = ({
   type,
   initialState = 'required',
@@ -10,15 +13,18 @@ const Moodlet = ({
   moodletData,
   onChange,
   readOnly = false,
+  disabled = false,
   renderAs = 'button'
 }) => {
   const [state, setState] = useState(initialState);
+
   // Get display information from the provided moodletData
   const getData = () => {
-    if (!moodletData) return { letter: '', word: '' };
+    if (!moodletData) return { letter: '', word: '', icon: '', ellipsis: false, disabled: true, readOnly: true };
     return moodletData;
   };
-  const { letter, word } = getData();
+
+  const { letter, word, icon } = getData();
   const [displayMode, setDisplayMode] = useState(displayType);
 
   // Update the display mode when the displayType prop changes
@@ -49,6 +55,9 @@ const Moodlet = ({
    * @fires onChange - Triggered when the state changes, passing the type and new state.
    */
   const handleClick = (e) => {
+    // preventing click activity on readOnly and disabled buttons
+    if (readOnly || disabled) return;
+
     if (e.type === 'contextmenu') {
       e.preventDefault();
     }
@@ -99,35 +108,71 @@ const Moodlet = ({
   };
 
   /**
-   * Retrieves the text to display based on the current display mode.
-   *
-   * @returns {string} The text to display. If the display mode is 'letter', it returns the `letter`.
-   * Otherwise, it returns the `word` converted to uppercase.
+   * Renders the content based on display mode.
    */
-  const getText = () => {
-    return displayMode === 'letter' ? letter : word.toUpperCase();
+  const renderContent = () => {
+    switch (displayMode) {
+      case 'letter':
+        return letter;
+      case 'word':
+        return word.toUpperCase();
+      case 'icon-only':
+        return icon;
+      case 'ellipsis':
+        return <FontAwesomeIcon icon={faEllipsisH} />;
+      case 'icon-left':
+        return (
+          <>
+            <span className="moodlet-icon">{icon}</span>
+            <span className="moodlet-text">{word.toUpperCase()}</span>
+          </>
+        );
+      case 'icon-right':
+        return (
+          <>
+            <span className="moodlet-text">{word.toUpperCase()}</span>
+            <span className="moodlet-icon">{icon}</span>
+          </>
+        );
+      default:
+        return letter;
+    }
   };
 
+  // Determine CSS classes
   const baseClass = styleType === 'clarity' ? 'moodlet-clarity' : 'moodlet';
-  const sizeClass = displayMode === 'word' ? 'word' : 'letter';
+
+  // Set the size class based on display mode
+  let sizeClass;
+  if (displayMode === 'word' || displayMode === 'icon-left' || displayMode === 'icon-right') {
+    sizeClass = 'word';
+  } else if (displayMode === 'icon-only' || displayMode === 'ellipsis') {
+    sizeClass = 'icon';
+  } else {
+    sizeClass = 'letter';
+  }
+
+  // Additional classes
   const readOnlyClass = readOnly ? 'read-only' : '';
+  const withIconClass = (displayMode === 'icon-left' || displayMode === 'icon-right') ? 'with-icon' : '';
+  const ellipsisClass = displayMode === 'ellipsis' ? 'ellipsis' : '';
+  const disabledClass = disabled ? 'disabled' : '';
 
+  // Common props for both button and div
+  const commonProps = {
+    className: `${readOnlyClass} ${disabledClass} ${baseClass} ${getColor()} ${sizeClass} ${withIconClass} ${ellipsisClass}`,
+    onClick: handleClick,
+    onContextMenu: handleClick
+  };
 
+  // Render as either a button or a div based on the renderAs prop
   return renderAs === 'button' ? (
-    <button
-      className={`${readOnlyClass} ${baseClass} ${getColor()} ${sizeClass} `}
-      onClick={handleClick}
-      onContextMenu={handleClick}
-    >
-      {getText()}
+    <button {...commonProps}>
+      {renderContent()}
     </button>
   ) : (
-    <div
-      className={`${readOnlyClass} ${baseClass} ${getColor()} ${sizeClass} `}
-      onClick={handleClick}
-      onContextMenu={handleClick}
-    >
-      {getText()}
+    <div {...commonProps}>
+      {renderContent()}
     </div>
   );
 };

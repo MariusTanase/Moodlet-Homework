@@ -2,14 +2,74 @@ import React, { useState } from 'react';
 import './App.css';
 import Moodlet from './components/Moodlet/Moodlet';
 import MoodletDropdown from './components/MoodletDropdown/MoodletDropdown';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faGasPump,
+  faWrench,
+  faBroom,
+  faShower,
+  faWater,
+  faMagnifyingGlass,
+  faEllipsisH
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+library.add(
+  faGasPump,
+  faWrench,
+  faBroom,
+  faShower,
+  faWater,
+  faMagnifyingGlass,
+  faEllipsisH
+);
 
 // some default moodlet types that follows the design + extra examples
 export const MOODLET_TYPES = {
-  F: { letter: 'F', word: 'Fuelling', options: ['F1', 'F2', 'F3', 'F4'] },
-  S: { letter: 'S', word: 'Servicing', options: ['S1', 'S2', 'S3', 'S4'] },
-  C: { letter: 'C', word: 'Cleaning', options: ['C1', 'C2', 'C3', 'C4'] },
-  D1: { letter: 'D', word: 'Draining', options: ['D1'], disabled: true },
-  D2: { letter: 'W', word: 'Washing', options: ['W1', 'W2'] },
+  F: {
+    letter: 'F',
+    word: 'Fuelling',
+    options: ['F1', 'F2', 'F3', 'F4'],
+    icon: <FontAwesomeIcon icon="gas-pump" />,
+    ellipsis: false
+  },
+  S: {
+    letter: 'S',
+    word: 'Servicing',
+    options: ['S1', 'S2', 'S3', 'S4'],
+    icon: <FontAwesomeIcon icon="wrench" />,
+    ellipsis: false,
+  },
+  C: {
+    letter: 'C',
+    word: 'Cleaning',
+    options: ['C1', 'C2', 'C3', 'C4'],
+    icon: <FontAwesomeIcon icon="broom" />,
+    ellipsis: false
+  },
+  D1: {
+    letter: 'D',
+    word: 'Draining',
+    options: ['D1'],
+    icon: <FontAwesomeIcon icon="shower" />,
+    ellipsis: false
+  },
+  D2: {
+    letter: 'W',
+    word: 'Washing',
+    options: ['W1', 'W2'],
+    icon: <FontAwesomeIcon icon="water" />,
+    ellipsis: false,
+    disabled: true
+  },
+  I: {
+    letter: 'I',
+    word: 'Inspection',
+    options: ['I1', 'I2'],
+    icon: <FontAwesomeIcon icon="magnifying-glass" />,
+    ellipsis: true,
+    readOnly: true
+  },
 };
 
 function App() {
@@ -71,10 +131,34 @@ function App() {
               Letter Version
             </button>
             <button
+              onClick={() => setDisplayType('icon-only')}
+              className={`menu-button ${displayType === 'icon-only' ? 'active' : ''}`}
+            >
+              Icon Version
+            </button>
+            <button
+              onClick={() => setDisplayType('ellipsis')}
+              className={`menu-button ${displayType === 'ellipsis' ? 'active' : ''}`}
+            >
+              Ellipsis <i class="fa-solid fa-ellipsis"></i>
+            </button>
+            <button
               onClick={() => setDisplayType('word')}
               className={`menu-button ${displayType === 'word' ? 'active' : ''}`}
             >
               Word Version
+            </button>
+            <button
+              onClick={() => setDisplayType('icon-left')}
+              className={`menu-button ${displayType === 'icon-left' ? 'active' : ''}`}
+            >
+              Icon Left Version
+            </button>
+            <button
+              onClick={() => setDisplayType('icon-right')}
+              className={`menu-button ${displayType === 'icon-right' ? 'active' : ''}`}
+            >
+              Icon Right Version
             </button>
           </div>
         </div>
@@ -92,7 +176,8 @@ function App() {
                 styleType="default"
                 initialState={moodletStates[key]}
                 onChange={handleMoodletChange}
-                readOnly={false}
+                readOnly={data.readOnly}
+                disabled={data.disabled}
               />
             ))}
           </div>
@@ -111,6 +196,8 @@ function App() {
                 styleType="clarity"
                 initialState={moodletStates[key]}
                 onChange={handleMoodletChange}
+                readOnly={data.readOnly}
+                disabled={data.disabled}
               />
             ))}
           </div>
