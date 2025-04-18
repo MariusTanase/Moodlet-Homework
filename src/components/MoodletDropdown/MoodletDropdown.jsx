@@ -49,35 +49,13 @@ const MoodletDropdown = ({
   const [open, setOpen] = useState(false);
   const [selectedIds, setSelectedIds] = useState([]);
   const [selectedStates, setSelectedStates] = useState({});
-  const [positionClasses, setPositionClasses] = useState('');
   const containerRef = useRef();
   const dropdownRef = useRef();
   // loading state for the dropdown // options to loop through
   const OPTIONS = moodletTypes ? generateOptions(moodletTypes) : [];
 
 
-  const adjustPosition = () => {
-    if (!containerRef.current || !dropdownRef.current || !open) return;
 
-    const containerRect = containerRef.current.getBoundingClientRect();
-    const dropdownRect = dropdownRef.current.getBoundingClientRect();
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
-
-    let classes = [];
-
-    // Check horizontal overflow
-    if (containerRect.left + dropdownRect.width > windowWidth - 20) {
-      classes.push('flip-right');
-    }
-
-    // Check vertical overflow
-    if (containerRect.bottom + dropdownRect.height > windowHeight - 20) {
-      classes.push('flip-top');
-    }
-
-    setPositionClasses(classes.join(' '));
-  };
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -89,25 +67,14 @@ const MoodletDropdown = ({
   }, []);
 
   // Adjust position when dropdown opens
-  useEffect(() => {
-    if (open) {
-      adjustPosition();
-      window.addEventListener('resize', adjustPosition);
-      window.addEventListener('scroll', adjustPosition);
-    }
 
-    return () => {
-      window.removeEventListener('resize', adjustPosition);
-      window.removeEventListener('scroll', adjustPosition);
-    };
-  }, [open]);
 
   // Handle selection change
   const handleSelect = (id) => {
     setSelectedIds(prev => {
-      // If already selected, do nothing (we don't remove through this function)
+      // If already selected, remove element from selection with a filter which does the job in this case // no api needed
       if (prev.includes(id)) {
-        return prev;
+        return prev.filter(selectedId => selectedId !== id);
       }
 
       // Add the new selection
@@ -126,9 +93,6 @@ const MoodletDropdown = ({
 
       return newSelection;
     });
-
-    // Keep dropdown open for multiple selections
-    // setOpen(false);
   };
 
   // Handle removing an item from selection
@@ -174,7 +138,7 @@ const MoodletDropdown = ({
     <div className='moodlet-dropdown-container'>
 
 
-      <div className={`dropdown-container moodlet-dropdown ${positionClasses}`} ref={containerRef}>
+      <div className={`dropdown-container moodlet-dropdown`} ref={containerRef}>
         <h3>Personal take</h3>
         <div>
           <button

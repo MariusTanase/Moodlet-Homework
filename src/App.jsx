@@ -133,7 +133,6 @@ function App() {
         <div className="control-section">
           <h3>Display Mode</h3>
           <p>When clicking any of these buttons it will reset the "Dropdown", didn't work too much on this, I know is bad UX. Please click again on "select button" to see the variants.</p>
-          <p>You can select multiple variants, if I have enough time in the morning I will add the option to deselect them from select dropdown.</p>
           <div className="control-buttons">
             <button
               onClick={() => setOptionViewMode('moodlet')}
