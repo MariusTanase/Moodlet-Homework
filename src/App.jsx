@@ -175,39 +175,39 @@ function App() {
         <div className='personal-notes'>
           <h2>My take on the challenge</h2>
 
-          <p>I want to start that this is the first time trying to follow pixel perfect design, in my previous roles I had free-hand to design and show them to clients/managers including my most recent role at ProEnviro. Unfortunatelly, they terminated my role due company issues(loved to work with them)</p>
           <p>
-            I have created a simple React application with my take on the moodlet functionality as per the design + dropdown + few extra bits. The application includes two main sections: Moodlet and Dropdown area. I was tempted to add Tailwind to it, but I kept it vanilla (Pure CSS)
+            I want to start by saying that this is the first time I'm trying to follow pixel perfect design. In my previous roles I had free-hand to design and show them to clients/managers including my most recent role at ProEnviro. Unfortunately, they terminated my role due to company issues (I loved working with them).
           </p>
+
+          <p>
+            I have created a simple React application with my take on the Moodlet functionality as per the design + dropdown + few extra bits. The application includes two main sections: Moodlet and Dropdown area. I was tempted to add Tailwind to it, but I kept it vanilla (Pure CSS).
+          </p>
+
           <p>
             I haven't gone overkill with the design, as I wanted to keep it simple and focused on the functionality and required design plus a personal touch to the dropdown, including a select option and a 'tab' option where the selected options will be shown.
           </p>
 
           <p>
-            The "Moodlet" buttons (icons) works fine. The Moodlet component is reusable in different parts of the code.
+            The "Moodlet" buttons (icons) work fine. The Moodlet component is reusable in different parts of the code.
           </p>
 
           <p>
-            I really tried to stay true to the design, but I had to make some adjustments to the dropdown component to make it more user-friendly and visually appealing. I hope you understand that this was done with the intention of improving the overall user experience. The dropdown size / gap wasn't working that fine for me today, so I made the gap larger. I tried to stay within the 3 hours estimation, but when I noticed the time was already over midnight and stayed about 5 hours in total.
+            I really tried to stay true to the design, but I had to make some adjustments to the dropdown component to make it more user-friendly and visually appealing. I hope you understand that this was done with the intention of improving the overall user experience. The dropdown size/gap wasn't working Figma representation with the sizes of the Dropdown, so I made the gap larger. I tried to stay within the 3 hours estimation, but when I noticed the time was already over midnight and stayed about 5 hours in total.
           </p>
 
-          <p> On the dropdown area, I wasn't sure about the designer vision if the dropdown should have Moodlet + text, or just text on the options, so I added both. Moodlet only, Text only and "Both" which is 'default', everything is highly customisable and new parts can/could always be added and improved on the design.</p>
+          <p>
+            On the dropdown area, I wasn't sure about the designer's vision if the dropdown should have Moodlet + text, or just text on the options, so I added both. Moodlet only, Text only and "Both" which is 'default'. Everything is highly customizable and new parts can/could always be added and improved on the design.
+          </p>
 
-          <p><strong>PS.</strong></p>
+          <p><strong>PS:</strong> I tried to deliver fast, as Easter is here, I will be gone 'afk' until Monday night. I hope you like it, and I am looking forward to hearing your feedback.</p>
+
           <p>
-            I tried to deliver fast, as Easter is here, I will be gone 'afk' until Monday night.
+            <em>PS at PS:</em> Coding is fun, I do hope that what I created here is satisfactory. I would love to build a long-term career with your company, but I will see if the battle royale goes fine(winning over all other candidates). Got used to write here, but I will stop yapping and keep the rest for hopefully the next step.
           </p>
-          <p>
-            I hope you like it, and I am looking forward to hearing your feedback.
-          </p>
-          <p><em>PS at PS</em></p>
-          <p>Coding is fun, I do hope I will pass to the next step and work together with you all. I will probably stay until pension, LoL.</p>
-          <p> Got used to write here, but I will stop yapping and keep the rest for hopefully the next step.</p>
 
           <hr></hr>
           <p>Best regards,</p>
           <p>Marius T.</p>
-
         </div>
       )}
 

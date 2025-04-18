@@ -208,3 +208,52 @@ footer a {
 footer a:hover {
     color: #2C2541;
 }
+
+.personal-notes {
+    background-color: #F8F7FA;
+    border-radius: 12px;
+    padding: 24px;
+    margin: 32px 0;
+    box-shadow: 0 1px 3px rgba(145, 158, 171, 0.46);
+    border-left: 4px solid #8a7dd8;
+}
+
+.personal-notes h2 {
+    color: #6E5CA3;
+    margin-top: 0;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #e2deed;
+    padding-bottom: 8px;
+}
+
+.personal-notes p {
+    color: #2C2541;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+.personal-notes strong {
+    color: #6E5CA3;
+    font-weight: 600;
+}
+
+.personal-notes em {
+    color: #6E5CA3;
+    font-style: italic;
+}
+
+.personal-notes hr {
+    border: none;
+    border-top: 1px solid #e2deed;
+    margin: 24px 0;
+}
+
+.personal-notes p:last-child,
+.personal-notes p:nth-last-child(2) {
+    margin-bottom: 0;
+    color: #6E5CA3;
+    font-weight: 500;
+}

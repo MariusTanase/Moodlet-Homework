@@ -54,10 +54,8 @@ const MoodletDropdown = ({
   // loading state for the dropdown // options to loop through
   const OPTIONS = moodletTypes ? generateOptions(moodletTypes) : [];
 
-
-
-
   // Close dropdown when clicking outside
+  // Had the idea of a modal first, but wouldn't be ideal in this case, but added the function to close the dropdown when clicking outside of it.
   useEffect(() => {
     const onClick = e => {
       if (containerRef.current && !containerRef.current.contains(e.target)) setOpen(false);
@@ -66,10 +64,13 @@ const MoodletDropdown = ({
     return () => document.removeEventListener('mousedown', onClick);
   }, []);
 
-  // Adjust position when dropdown opens
-
-
-  // Handle selection change
+  /**
+   * Handles the selection of an item by its ID. Toggles the selection state of the item,
+   * removing it if already selected or adding it if not. Updates the selected states
+   * and notifies the parent component of the new selection if a callback is provided.
+   *
+   * @param {string | number} id - The unique identifier of the item to be selected or deselected.
+   */
   const handleSelect = (id) => {
     setSelectedIds(prev => {
       // If already selected, remove element from selection with a filter which does the job in this case // no api needed
@@ -95,7 +96,13 @@ const MoodletDropdown = ({
     });
   };
 
-  // Handle removing an item from selection
+
+  /**
+   * Handles the removal of an item by its ID.
+   * Updates the selected IDs and their associated states, and optionally notifies the parent component.
+   *
+   * @param {string | number} id - The unique identifier of the item to be removed.
+   */
   const handleRemove = (id) => {
     setSelectedIds(prev => {
       const newSelection = prev.filter(selectedId => selectedId !== id);
@@ -116,7 +123,12 @@ const MoodletDropdown = ({
     });
   };
 
-  // Handle state change for a selected moodlet
+  /**
+   * Updates the state of a moodlet by its ID.
+   *
+   * @param {string} id - The unique identifier of the moodlet.
+   * @param {any} newState - The new state to be assigned to the moodlet.
+   */
   const handleMoodletStateChange = (id, newState) => {
     setSelectedStates(prev => ({
       ...prev,
@@ -124,12 +136,23 @@ const MoodletDropdown = ({
     }));
   };
 
-  // Get the moodlet data for a specific type
+
+  /**
+   * Retrieves moodlet data based on the provided type.
+   *
+   * @param {string} type - The type of moodlet to retrieve data for.
+   * @returns {Object|null} The moodlet data if the type exists in `moodletTypes`, otherwise `null`.
+   */
   const getMoodletData = (type) => {
     return moodletTypes && moodletTypes[type] ? moodletTypes[type] : null;
   };
 
-  // Find option data by ID
+  /**
+   * Retrieves an option object from the OPTIONS array by its unique identifier.
+   *
+   * @param {string|number} id - The unique identifier of the option to retrieve.
+   * @returns {Object|undefined} The option object with the matching id, or undefined if not found.
+   */
   const getOptionById = (id) => {
     return OPTIONS.find(opt => opt.id === id);
   };
