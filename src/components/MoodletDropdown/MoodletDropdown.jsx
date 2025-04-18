@@ -23,6 +23,7 @@ const generateOptions = (moodletTypes) => {
 
   const options = [];
 
+
   Object.entries(moodletTypes).forEach(([typeKey, typeData]) => {
     if (typeData.options && typeData.options.length) {
       typeData.options.forEach((optionId) => {
@@ -30,6 +31,7 @@ const generateOptions = (moodletTypes) => {
           id: optionId,
           type: typeKey,
           text: optionId ? `Option ${optionId}` : typeData.word,
+          disabled: typeData.disabled || false
         });
       });
     }
@@ -190,6 +192,7 @@ const MoodletDropdown = ({
                 <button
                   className={`dropdown-option ${isSelected ? 'selected' : ''}`}
                   onClick={() => handleSelect(opt.id)}
+                  disabled={opt.disabled}
                 >
                   {(optionViewMode === 'moodlet' || optionViewMode === 'both') && (
                     <Moodlet
@@ -197,8 +200,8 @@ const MoodletDropdown = ({
                       moodletData={getMoodletData(opt.type)}
                       displayType="letter"
                       styleType={styleType}
-                      readOnly={true}
-                      initialState="required"
+                      readOnly={opt.disabled ? false : true}
+                      initialState={opt.disabled ? 'not-required' : 'required'}
                       renderAs='div'
                     />
                   )}

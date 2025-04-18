@@ -8,7 +8,7 @@ export const MOODLET_TYPES = {
   F: { letter: 'F', word: 'Fuelling', options: ['F1', 'F2', 'F3', 'F4'] },
   S: { letter: 'S', word: 'Servicing', options: ['S1', 'S2', 'S3', 'S4'] },
   C: { letter: 'C', word: 'Cleaning', options: ['C1', 'C2', 'C3', 'C4'] },
-  D1: { letter: 'D', word: 'Draining', options: ['D1'] },
+  D1: { letter: 'D', word: 'Draining', options: ['D1'], disabled: true },
   D2: { letter: 'W', word: 'Washing', options: ['W1', 'W2'] },
 };
 

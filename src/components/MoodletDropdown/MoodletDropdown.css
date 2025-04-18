@@ -73,6 +73,18 @@
   font-family: 'Public-Sans', sans-serif;
 }
 
+button:disabled {
+  color: #A89DC8;
+  cursor: not-allowed;
+  transition: ease-in-out 0.2s;
+}
+
+button:disabled:hover {
+  background: #f0f0f0;
+  color: gray;
+  cursor: not-allowed;
+}
+
 .button-select {
   display: flex;
   align-items: center;
@@ -126,6 +138,7 @@
 
 .dropdown-option:hover {
   background-color: #E2DEED;
+  transition: ease-in-out 0.2s;
 }
 
 .dropdown-option.selected {
