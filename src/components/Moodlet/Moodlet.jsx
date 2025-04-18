@@ -101,7 +101,7 @@ const Moodlet = ({
    */
   const getColor = () => {
     if (state === 'not-required') return 'disabled';
-    if (state === 'required') return 'purple';
+    if (state === 'required') return 'primary';
     if (state === 'current') return 'red';
     if (state === 'completed') return 'green';
     return 'disabled';

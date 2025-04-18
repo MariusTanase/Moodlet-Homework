@@ -226,6 +226,10 @@ function App() {
           </p>
 
           <p>
+            The biggest challenge was that I was always having ideas of how to showcase most of the design, and tried to perfect my project. I've added just Primary color scheme, the rest can easily be added as a prop.
+          </p>
+
+          <p>
             I have created a simple React application with my take on the Moodlet functionality as per the design + dropdown + few extra bits. The application includes two main sections: Moodlet and Dropdown area. I was tempted to add Tailwind to it, but I kept it vanilla (Pure CSS).
           </p>
 
